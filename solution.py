@@ -1,9 +1,11 @@
 
 import sys
 
-# if __name__ == "__main__":
-# digit_string = sys.argv[1]
-# digit_string_num = map(int, digit_string)
-# print(sum(digit_string_num))
+digit_string = sys.argv[1]
+stair_step = 1
+max_stair_step = int(digit_string)
+for i in range(max_stair_step):
+    max_stair_step -= 1
+    print(" " * max_stair_step + "#" * stair_step)
+    stair_step += 1
 
-print(sum([int(x) for x in sys.argv[1]]))
