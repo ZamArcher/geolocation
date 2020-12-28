@@ -1,24 +1,22 @@
+class FileReader:
+    """Конструктор этого класса принимает только 1 параметр - путь до файла на диске"""
 
-# import sys
-#
-# digit_string = sys.argv[1]
-# stair_step = 1
-# max_stair_step = int(digit_string)
-# for i in range(max_stair_step):
-#     max_stair_step -= 1
-#     print(" " * max_stair_step + "#" * stair_step)
-#     stair_step += 1
+    def __init__(self, filename='example.txt'):
+        self.filename = filename
 
-import sys
+    def read(self):
+        """Возвращает строку - содержимое файла, путь к которому был указан при создании экземпляра класса"""
+        try:
+            file = open(self.filename)
+            return file.read()
+        except IOError:
+            return ""
 
-a = int(sys.argv[1])
-b = int(sys.argv[2])
-c = int(sys.argv[3])
 
-D = b ** 2 - 4 * a * c
+def main():
+    x = FileReader('example.txt')
+    print(x.read())
 
-x_1 = ((-1) * b + D ** 0.5) / (2 * a)
-x_2 = ((-1) * b - D ** 0.5) / (2 * a)
 
-print(int(x_1))
-print(int(x_2))
+if __name__ == "__main__":
+    main()
